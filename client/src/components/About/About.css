@@ -1,0 +1,23 @@
+.a-container {
+    height: 70vh;
+    width: 100%;
+    display: flex;
+}
+.left-div {
+    width: 50%;
+    background-image: url("https://img.freepik.com/free-vector/hand-drawn-houseplant-collection_23-2148910610.jpg?w=2000");
+    background-size: contain;
+
+}
+.right-div {
+    width: 50%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.a-paragraph {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}

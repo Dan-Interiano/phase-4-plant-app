@@ -1,0 +1,15 @@
+.hero-container {
+    background: url('https://wallpaperaccess.com/full/343990.jpg') no-repeat fixed center;;
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
+}
+.h-title {
+    color: white;
+    font-family: 'Pacifico', cursive;
+    font-size: 100px;
+}
