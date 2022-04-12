@@ -7,6 +7,7 @@ import Garden from "./components/Garden/Garden";
 import Home from "./components/Home /Home";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar/Navbar";
+import Plant from "./components/Plant/Plant";
 import SignUp from "./components/SignUp";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route exact path="/" component={Home}/>
         <Route exact path="/login" component={Login}/>
         <Route exact path="/signup" component={SignUp}/>
+        <Route exact path="/plants/:id" component={Plant}  />
         <Login setUser={setUser} />
         <SignUp setUser={setUser} />
         <Home />
