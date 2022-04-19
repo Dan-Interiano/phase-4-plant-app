@@ -1,0 +1,20 @@
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.welcome-container > h1 {
+    margin-top: 60px;
+}
+.com-container {
+    display: flex;
+    width: 50%;
+
+}
+.or-title {
+    align-self: center;
+}
+input {
+    margin: 5px;
+}

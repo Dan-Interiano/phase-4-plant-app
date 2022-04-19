@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Plantform.css";
 
-export default function Plantform({ form, handleChange, handleSubmit}) {
+export default function Plantform({ form, handleChange, handleSubmit }) {
     
 
   return (

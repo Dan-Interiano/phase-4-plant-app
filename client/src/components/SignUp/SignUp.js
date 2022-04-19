@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Signup.css";
 
 function SignUp({ setUser }) {
   const [username, setUsername] = useState("");
@@ -7,7 +8,7 @@ function SignUp({ setUser }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/signup", {
+    fetch("/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -17,21 +18,21 @@ function SignUp({ setUser }) {
         password,
         password_confirmation: passwordConfirmation,
       }),
-    }).then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((user) => setUser(user))
       }
     });
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <h1>Sign Up</h1>
+    <div className="signup-container">
+      <form onSubmit={handleSubmit} className="signup-form">
+        <h1 className="signup-title">Sign Up</h1>
         <label htmlFor="username">Username</label>
         <input
           type="text"
-          id="username"
+          id="signup-username"
           autoComplete="off"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
@@ -39,7 +40,7 @@ function SignUp({ setUser }) {
         <label htmlFor="password">Password</label>
         <input
           type="password"
-          id="password"
+          id="signup-password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           autoComplete="current-password"
@@ -52,7 +53,7 @@ function SignUp({ setUser }) {
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           autoComplete="current-password"
         />
-        <button type="submit">Sign Up</button>
+        <button type="submit" className="submit-btn">Sign Up</button>
       </form>
     </div>
   );

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './Login.css';
 
 function Login({ setUser }) {
   const [username, setUsername] = useState("");
@@ -20,13 +21,13 @@ function Login({ setUser }) {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <h1>Login</h1>
+    <div className="form-container">
+      <form onSubmit={handleSubmit} className="login-form">
+        <h1 className="login-title">Login</h1>
         <label htmlFor="username">Username</label>
         <input
           type="text"
-          id="username"
+          id="login-username"
           autoComplete="off"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
@@ -34,12 +35,12 @@ function Login({ setUser }) {
         <label htmlFor="password">Password</label>
         <input
           type="password"
-          id="password"
+          id="login-password"
           autoComplete="current-password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Login</button>
+        <button type="submit" className="login-btn">Login</button>
       </form>
     </div>
   );

@@ -5,22 +5,25 @@ import './App.css';
 import About from "./components/About/About";
 import Garden from "./components/Garden/Garden";
 import Home from "./components/Home /Home";
-import Login from "./components/Login";
+import Login from "./components/Login/Login";
 import Navbar from "./components/Navbar/Navbar";
 import Plant from "./components/Plant/Plant";
-import SignUp from "./components/SignUp";
+import SignUp from "./components/SignUp/SignUp";
+import Welcome from "./components/Welcome/Welcome";
 
 function App() {
   const [user, setUser] = useState(null);
 
-  // useEffect(() => {
-  //    //auto-login
-  //   fetch("/me").then((r) => {
-  //     if (r.ok) {
-  //       r.json().then((user) => setUser(user));
-  //     }
-  //   });
-  // }, []);
+  useEffect(() => {
+     //auto-login
+    fetch("/auth").then((res) => {
+      if (res.ok) {
+        res.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+
+  if(!user) return <Welcome setUser={setUser }/>
 
   return (
     <div className="App">
@@ -29,9 +32,9 @@ function App() {
       <Switch>
         <Route exact path="/garden" component={Garden} />
         <Route exact path="/about" component={About} />
-        <Route exact path="/" component={Home}/>
-        <Route exact path="/login" component={Login}/>
-        <Route exact path="/signup" component={SignUp}/>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={SignUp} />
         <Route exact path="/plants/:id" component={Plant}  />
         <Login setUser={setUser} />
         <SignUp setUser={setUser} />
