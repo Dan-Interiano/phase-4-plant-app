@@ -1,3 +1,4 @@
+puts "🌱 Seeding spices..."
 
 Plant.create(name: "Pothos", species: "Epipremnum aureum", sun_exposure: "Partial to Full Sun Exposure", soil_type: "Well-drained potting soil", water_cycle: "Every 5-7 days", bio: "The species is a popular houseplant in temperte regions but has also become naturalised in tropical and sub-tropical forests worldwide.", image_url: "https://cdn.britannica.com/70/176570-050-4D6D0936/Pothos-houseplant.jpg")
 Plant.create(name: "Chinese Money Plant", species: "Pilea peperomioides", sun_exposure: "Bright Indirect Light", soil_type: "Well-draining, rich", water_cycle: "Every 5-7 days", bio: "These inexpensive plants are excellent for growing indoors in dish gardens and are great starter plants for beginners.", image_url: "https://www.tropicalexpressatl.com/uploads/1/3/3/9/133976749/s372687703269487458_p179_i1_w1024.jpeg")
@@ -10,3 +11,23 @@ Plant.create(name: "Crocodile Fern", species: "Microsorum Musifolium", sun_expos
 Plant.create(name: "Painted Lady", species: "Philodendron Erubescens", sun_exposure: "Partial Shade", soil_type: "Rich, quick-draining, loamy", water_cycle: "1-2 times a week", bio: "Truly a collectors dream with it's neaon yellow-green leaves dappled with lush green spots, held perfectly on pink stems", image_url: "https://kensphilodendrons.com/wp-content/uploads/PHI-PAL-p-6-1.jpg")
 Plant.create(name: "Birds of Paradise", species: "Strelitzia Reginae", sun_exposure: "Full sun to partial shade", soil_type: "Rich Loam", water_cycle: "1-2 times a week", bio: "One of the best known of all the tropical flowers and is a cousin to the banana. Suprisingly easier to grow than many other tropical plants.", image_url: "https://gardenerspath.com/wp-content/uploads/2020/10/Bird-of-Paradise-Flower-on-a-Black-Background.jpg")
 Plant.create(name: "Calathea Broad Leaf", species: "Calathea Ornata Sanderiana", sun_exposure: "Indirect medium light", soil_type: "Moist but well-drained", water_cycle: "Every 2-3 days", bio: "Native to Brazil and grown indoors year-round, calathea are true tropicals in every sense of the word.", image_url: "https://cdn.shopify.com/s/files/1/0150/6262/products/the-sill_calathea-orbifolia_gallery_all_all_01.jpg?v=1634559923")
+
+Review.create(title: "Gotta love these!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 1)
+Review.create(title: "Breathe of fresh air!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 2)
+Review.create(title: "#blessed!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 4, user_id: 1, plant_id: 3)
+Review.create(title: "holy cow!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 3, user_id: 1, plant_id: 3)
+Review.create(title: "Woohoo!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 4)
+Review.create(title: "You just never know!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 6)
+Review.create(title: "I mean come on!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 6)
+Review.create(title: "Put a bagel on it!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 2, plant_id: 4)
+Review.create(title: "Sometimes you just know!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 2, plant_id: 2)
+Review.create(title: "Didn't see that coming", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 2, plant_id: 2)
+Review.create(title: "things just happen", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 2, plant_id: 3)
+Review.create(title: "love love love!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 2, plant_id: 2)
+Review.create(title: "should've seen that coming!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 2, plant_id: 5)
+Review.create(title: "Gotta love these!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 7)
+Review.create(title: "Gotta love these!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 9)
+Review.create(title: "Gotta love these!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 4)
+Review.create(title: "Gotta love these!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 2)
+Review.create(title: "Gotta love these!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 9)
+puts "✅ Done seeding!"
