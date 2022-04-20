@@ -14,7 +14,7 @@ import Welcome from "./components/Welcome/Welcome";
 function App() {
   const [user, setUser] = useState(null);
 
-  useEffect(() => {
+  useEffect(() => { 
      //auto-login
     fetch("/auth").then((res) => {
       if (res.ok) {
@@ -23,21 +23,23 @@ function App() {
     });
   }, []);
 
-  if(!user) return <Welcome setUser={setUser }/>
+  if(!user) return <Welcome />
 
   return (
     <div className="App">
       <Router>
       <Navbar user={user} setUser={setUser}/>
       <Switch>
+      <Route exact path="/login"><Login setUser={setUser} /></Route>
+
         <Route exact path="/garden" component={Garden} />
         <Route exact path="/about" component={About} />
         <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/plants/:id" component={Plant}  />
-        <Login setUser={setUser} />
+        
         <SignUp setUser={setUser} />
+        {/* <Welcome setUser={setUser}/> */}
         <Home />
         <Garden />
         <About />

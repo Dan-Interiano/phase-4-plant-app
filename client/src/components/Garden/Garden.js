@@ -6,20 +6,19 @@ import "./Garden.css"
 export default function Garden() {
   const [plants, setPlants] = useState([]);
   const [formData, setFormData] = useState({
-    name: "",
-    species: "",
-    sun_exposure: "",
-    soil_type: "",
-    water_cycle: "",
-    bio: "",
-    immage_url: ""
+    name: " ",
+    species: " ",
+    sun_exposure: " ",
+    soil_type: " ",
+    water_cycle: " ",
+    image_url: " ",
+    bio: " "
   });
   
   useEffect(() => {
     fetch("http://localhost:4000/plants")
       .then((res) => res.json())
       .then((fetchedPlants) => {
-        console.log(fetchedPlants)
         setPlants(fetchedPlants)
       })
   }, [])
@@ -40,6 +39,7 @@ export default function Garden() {
     })
     .then((res) => res.json())
     .then((newPlant) => {
+      console.log(newPlant)
       setPlants([
         ...plants,
         newPlant
@@ -50,8 +50,8 @@ export default function Garden() {
       sun_exposure: "",
       soil_type: "",
       water_cycle: "",
-      bio: "",
-      immage_url: ""
+      immage_url: "",
+      bio: ""
     })})
   }
   return (

@@ -1,0 +1,9 @@
+.revform-container {
+    border: 5px solid rgb(69, 135, 28);
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

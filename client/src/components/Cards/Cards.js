@@ -9,7 +9,7 @@ export default function Cards({ data }) {
           return (
             <div key={plant.id} className="card">
               <img src={plant.image_url} className="plant-picture" alt={plant.name}/>
-              <h4 className='card-title'>{plant.name}</h4>
+              <h2 className='card-title'>{plant.name}</h2>
               <NavLink to={`/plants/${plant.id}`} className="plant-btn">Learn More</NavLink>
             </div>
           )
