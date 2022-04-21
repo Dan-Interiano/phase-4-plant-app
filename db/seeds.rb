@@ -30,4 +30,5 @@ Review.create(title: "Gotta love these!", comment: "wow this was such a joy to h
 Review.create(title: "Gotta love these!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 4)
 Review.create(title: "Gotta love these!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 2)
 Review.create(title: "Gotta love these!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 9)
+
 puts "✅ Done seeding!"
