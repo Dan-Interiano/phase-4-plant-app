@@ -1,6 +1,6 @@
 class PlantsController < ApplicationController
     wrap_parameters format: []
-    #skip_before_action :authorize, only: [:create]
+    skip_before_action :authorize, only: [:create, :index, :show]
 
 
     def index 

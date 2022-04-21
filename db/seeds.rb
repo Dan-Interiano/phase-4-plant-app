@@ -12,6 +12,8 @@ Plant.create(name: "Painted Lady", species: "Philodendron Erubescens", sun_expos
 Plant.create(name: "Birds of Paradise", species: "Strelitzia Reginae", sun_exposure: "Full sun to partial shade", soil_type: "Rich Loam", water_cycle: "1-2 times a week", bio: "One of the best known of all the tropical flowers and is a cousin to the banana. Suprisingly easier to grow than many other tropical plants.", image_url: "https://gardenerspath.com/wp-content/uploads/2020/10/Bird-of-Paradise-Flower-on-a-Black-Background.jpg")
 Plant.create(name: "Calathea Broad Leaf", species: "Calathea Ornata Sanderiana", sun_exposure: "Indirect medium light", soil_type: "Moist but well-drained", water_cycle: "Every 2-3 days", bio: "Native to Brazil and grown indoors year-round, calathea are true tropicals in every sense of the word.", image_url: "https://cdn.shopify.com/s/files/1/0150/6262/products/the-sill_calathea-orbifolia_gallery_all_all_01.jpg?v=1634559923")
 
+User.create(username: "daniel", password_digest: "1234")
+
 Review.create(title: "Gotta love these!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 1)
 Review.create(title: "Breathe of fresh air!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 2)
 Review.create(title: "#blessed!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 4, user_id: 1, plant_id: 3)

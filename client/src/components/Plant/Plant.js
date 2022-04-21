@@ -13,26 +13,7 @@ export default function Plant() {
     comment: undefined,
     score: undefined,
     title: undefined
-  })
-  function handleChange(event) {
-    setRevForm({
-      ...revform,
-      [event.target.name]: event.target.value,
-    })
-  }
-  function handleSubmit(event) {
-    event.preventDefault();
-    fetch("http://localhost:4000/reviews", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(revform),
-    })
-      .then((res) => res.json())
-      .then((data) => setRevForm(data))
-    setRevForm('')
-  }
+  }) 
   useEffect(() => {
     fetch(`http://localhost:4000/plants/${id}`)
       .then((res) => res.json())
@@ -41,7 +22,27 @@ export default function Plant() {
       })
   },
     [])
-
+  
+  function handleChange(event) {
+    setRevForm({
+      ...revform,
+      [event.target.name]: event.target.value,
+    })
+  }
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log(revform)
+    debugger;
+    fetch("http://localhost:4000/reviews", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(revform),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+  }
   return (
     <div className='flora-container'>
       <div className='flora-details'>
@@ -55,7 +56,7 @@ export default function Plant() {
         <h5>Water Cycle: {flora.water_cycle}</h5>
       </div>
       <Revform submit={handleSubmit} change={handleChange} form={revform} />
-      <Reviews />
+      <Reviews flora={flora} />
     </div>
   )
 }

@@ -1,0 +1,16 @@
+.rev-select {
+    width: 10%;
+    margin: 15px;
+}
+.rev-container {
+    display: flex;
+}
+.review-card {
+    border: 3px solid rgb(60, 143, 49);
+    width: 35%;
+    padding: 15px;
+    margin: 15px;
+}
+.review-comment {
+    margin: 10px 0px;
+}
