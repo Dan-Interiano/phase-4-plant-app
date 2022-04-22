@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
-    skip_before_action :authorize, only: [:index, :show]
+    wrap_parameters format: []
+    skip_before_action :authorize, only: [:index, :show, :create, :destroy]
 
     def index 
         all_reviews = Review.all 
@@ -11,9 +12,14 @@ class ReviewsController < ApplicationController
         render json: selected_review
     end 
     def create 
-        byebug
         new_review = Review.create(review_params)
         render json: new_review, status: :created
+    end
+    def destroy
+        review = find_review
+        puts review
+        #review.destroy
+        head :no_content
     end
 
     private
@@ -22,6 +28,6 @@ class ReviewsController < ApplicationController
         Review.find_by(id: params[:id])
     end
     def review_params
-        params.permit(:title, :comment, :score)
+        params.permit(:title, :comment, :score, :plant_id)
     end
 end

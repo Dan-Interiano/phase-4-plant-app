@@ -14,3 +14,15 @@
 .review-comment {
     margin: 10px 0px;
 }
+.review-buttons-div {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+}
+.fa-trash {
+    padding: 4px;
+}
+.edit-button {
+    padding: 4px;
+    margin-left: 5px;
+}

@@ -3,41 +3,60 @@ import './Reviews.css'
 import Select from 'react-select'
 
 
-export default function Reviews({ flora}) {
+export default function Reviews({ flora, setFlora }) {
   const [search, setSearch] = useState('All');
 
   const options = [
-    {value: 'All', label: 'All'},
-    {value: 5, label: 5},
-    {value: 4, label: 4},
-    {value: 3, label: 3},
-    {value: 2, label: 2},
-    {value: 1, label: 1},
+    { value: 'All', label: 'All' },
+    { value: 5, label: 5 },
+    { value: 4, label: 4 },
+    { value: 3, label: 3 },
+    { value: 2, label: 2 },
+    { value: 1, label: 1 },
   ]
 
-  const fiteredReviews = flora?.reviews?.filter((review) => {
+  const filteredReviews = flora?.reviews?.filter((review) => {
     if (search === "All") return true;
 
     return review.score === search;
 
   });
+  function handleDelete(id){
+    fetch(`http://localhost:4000/reviews/${id}`, {
+      method: "DELETE",
+    }).then((res) => {
+      console.log(res)
+    });
+    const updatedReviewsList = flora?.reviews?.filter((review) => {
+      return review.id !== id
+    });
+    console.log(updatedReviewsList)
+    debugger;
+    //setFlora(updatedReviewsList);
+  }
+  function handleEdit(event){
+    
+  }
   return (
     <div className='r-div'>
-        <h2>Reviews</h2>
-        <Select options={options} className="rev-select" onChange={(e) => setSearch(e.value)}/>
-          <div className='rev-container'>
-          {fiteredReviews?.map((review) => {
-            return (
-              <div className='review-card' key={review.id}>
-                <h1 className='rev-name'>{review.manga?.title}</h1>
-                <h4>{review.title}</h4>
-                <p className='review-comment'>{review.comment}</p>
-                <h3>Rated {review.score} out of 5!</h3>
-                
+      <h2>Reviews</h2>
+      <Select options={options} className="rev-select" onChange={(e) => setSearch(e.value)} />
+      <div className='rev-container'>
+        {filteredReviews?.map((review) => {
+          return (
+            <div className='review-card' key={review.id}>
+              <h1 className='rev-name'>{review.manga?.title}</h1>
+              <h4>{review.title}</h4>
+              <p className='review-comment'>{review.comment}</p>
+              <h3>Rated {review.score} out of 5!</h3>
+              <div className='review-buttons-div'>
+                <button onClick={() => handleDelete(review.id)}><i class="fa fa-trash"></i></button>
+                <button className='edit-button'onClick={handleEdit} >edit</button>
               </div>
-            )
-          })}
-        </div>
+            </div>
+          )
+        })}
       </div>
+    </div>
   )
 }

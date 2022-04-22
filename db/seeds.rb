@@ -11,9 +11,6 @@ Plant.create(name: "Crocodile Fern", species: "Microsorum Musifolium", sun_expos
 Plant.create(name: "Painted Lady", species: "Philodendron Erubescens", sun_exposure: "Partial Shade", soil_type: "Rich, quick-draining, loamy", water_cycle: "1-2 times a week", bio: "Truly a collectors dream with it's neaon yellow-green leaves dappled with lush green spots, held perfectly on pink stems", image_url: "https://kensphilodendrons.com/wp-content/uploads/PHI-PAL-p-6-1.jpg")
 Plant.create(name: "Birds of Paradise", species: "Strelitzia Reginae", sun_exposure: "Full sun to partial shade", soil_type: "Rich Loam", water_cycle: "1-2 times a week", bio: "One of the best known of all the tropical flowers and is a cousin to the banana. Suprisingly easier to grow than many other tropical plants.", image_url: "https://gardenerspath.com/wp-content/uploads/2020/10/Bird-of-Paradise-Flower-on-a-Black-Background.jpg")
 Plant.create(name: "Calathea Broad Leaf", species: "Calathea Ornata Sanderiana", sun_exposure: "Indirect medium light", soil_type: "Moist but well-drained", water_cycle: "Every 2-3 days", bio: "Native to Brazil and grown indoors year-round, calathea are true tropicals in every sense of the word.", image_url: "https://cdn.shopify.com/s/files/1/0150/6262/products/the-sill_calathea-orbifolia_gallery_all_all_01.jpg?v=1634559923")
-
-User.create(username: "daniel", password_digest: "1234")
-
 Review.create(title: "Gotta love these!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 1)
 Review.create(title: "Breathe of fresh air!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 2)
 Review.create(title: "#blessed!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 4, user_id: 1, plant_id: 3)
@@ -28,9 +25,17 @@ Review.create(title: "things just happen", comment: "wow this was such a joy to 
 Review.create(title: "love love love!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 2, plant_id: 2)
 Review.create(title: "should've seen that coming!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 2, plant_id: 5)
 Review.create(title: "Gotta love these!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 7)
-Review.create(title: "Gotta love these!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 9)
-Review.create(title: "Gotta love these!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 4)
+Review.create(title: "Green Green Green!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 9)
+Review.create(title: "Another one for the books!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 4)
 Review.create(title: "Gotta love these!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 2)
-Review.create(title: "Gotta love these!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 9)
+Review.create(title: "You love these!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 3)
+Review.create(title: "Green Green Green!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 1)
+Review.create(title: "Another one for the books!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 4)
+Review.create(title: "Gotta love these!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 2)
+Review.create(title: "You love these!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 9)
+Review.create(title: "Green Green Green!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 1)
+Review.create(title: "Another one for the books!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 4)
+Review.create(title: "Gotta love these!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 3)
+Review.create(title: "You love these!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 9)
 
 puts "✅ Done seeding!"

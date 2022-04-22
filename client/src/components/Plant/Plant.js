@@ -9,7 +9,7 @@ export default function Plant() {
   const [flora, setFlora] = useState([]);
   const { id } = useParams();
   const [revform, setRevForm] = useState({
-    manga_id: id,
+    plant_id: id,
     comment: undefined,
     score: undefined,
     title: undefined
@@ -41,7 +41,15 @@ export default function Plant() {
       body: JSON.stringify(revform),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        console.log(data)
+        setRevForm({
+          plant_id: id,
+          comment: "",
+          score: "",
+          title: ""
+        })
+      })
   }
   return (
     <div className='flora-container'>
@@ -56,7 +64,7 @@ export default function Plant() {
         <h5>Water Cycle: {flora.water_cycle}</h5>
       </div>
       <Revform submit={handleSubmit} change={handleChange} form={revform} />
-      <Reviews flora={flora} />
+      <Reviews flora={flora} setFlora={setFlora}/>
     </div>
   )
 }
