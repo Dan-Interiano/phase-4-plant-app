@@ -7,6 +7,7 @@ import './Plant.css';
 
 export default function Plant() {
   const [flora, setFlora] = useState([]);
+  const [reviews, setReviews] = useState([])
   const { id } = useParams();
   const [revform, setRevForm] = useState({
     plant_id: id,
@@ -18,6 +19,7 @@ export default function Plant() {
     fetch(`http://localhost:4000/plants/${id}`)
       .then((res) => res.json())
       .then((plant) => {
+        setReviews(plant.reviews)
         setFlora(plant)
       })
   },
@@ -31,8 +33,6 @@ export default function Plant() {
   }
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(revform)
-    debugger;
     fetch("http://localhost:4000/reviews", {
       method: "POST",
       headers: {
@@ -42,7 +42,7 @@ export default function Plant() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        setReviews([...reviews, data])
         setRevForm({
           plant_id: id,
           comment: "",
@@ -64,7 +64,7 @@ export default function Plant() {
         <h5>Water Cycle: {flora.water_cycle}</h5>
       </div>
       <Revform submit={handleSubmit} change={handleChange} form={revform} />
-      <Reviews flora={flora} setFlora={setFlora}/>
+      <Reviews reviews={reviews} setReviews={setReviews} />
     </div>
   )
 }

@@ -3,9 +3,9 @@ import './Reviews.css'
 import Select from 'react-select'
 
 
-export default function Reviews({ flora, setFlora }) {
+export default function Reviews({ reviews, setReviews }) {
   const [search, setSearch] = useState('All');
-
+  
   const options = [
     { value: 'All', label: 'All' },
     { value: 5, label: 5 },
@@ -14,25 +14,19 @@ export default function Reviews({ flora, setFlora }) {
     { value: 2, label: 2 },
     { value: 1, label: 1 },
   ]
-
-  const filteredReviews = flora?.reviews?.filter((review) => {
+  const filteredReviews = reviews?.filter((review) => {
     if (search === "All") return true;
-
     return review.score === search;
-
   });
   function handleDelete(id){
     fetch(`http://localhost:4000/reviews/${id}`, {
       method: "DELETE",
     }).then((res) => {
-      console.log(res)
+      const updatedReviewsList = reviews?.filter((review) => {
+        return review.id !== id
+      });
+      setReviews(updatedReviewsList)
     });
-    const updatedReviewsList = flora?.reviews?.filter((review) => {
-      return review.id !== id
-    });
-    console.log(updatedReviewsList)
-    debugger;
-    //setFlora(updatedReviewsList);
   }
   function handleEdit(event){
     
