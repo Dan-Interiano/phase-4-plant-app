@@ -12,6 +12,7 @@ class ReviewsController < ApplicationController
         render json: selected_review
     end 
     def create 
+        byebug
         new_review = Review.create(review_params)
         render json: new_review, status: :created
     end
