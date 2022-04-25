@@ -12,8 +12,8 @@ class ReviewsController < ApplicationController
         render json: selected_review
     end 
     def create 
-        byebug
         new_review = Review.create(review_params)
+        byebug
         render json: new_review, status: :created
     end
     def destroy
@@ -28,6 +28,7 @@ class ReviewsController < ApplicationController
         Review.find_by(id: params[:id])
     end
     def review_params
-        params.permit(:title, :comment, :score, :plant_id)
+        defaults = { user_id: session[:user_id] }
+        params.permit(:title, :comment, :score, :plant_id, :user_id).reverse_merge(defaults)
     end
 end

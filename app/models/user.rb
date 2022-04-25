@@ -3,5 +3,7 @@ class User < ApplicationRecord
     
     has_many :reviews
 
-    #validates :username, :password, uniqueness: true
+    validates :username, :password_digest, uniqueness: true
+    validates :username, :password_digest, presence: true 
+    validates :password, length:{minimum: 8}
 end
