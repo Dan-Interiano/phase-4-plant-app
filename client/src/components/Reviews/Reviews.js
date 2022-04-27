@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import './Reviews.css'
 import Select from 'react-select'
+import { NavLink } from 'react-router-dom';
 
 
 export default function Reviews({ reviews, setReviews }) {
   const [search, setSearch] = useState('All');
-  
+  //const [popupButton, setPopupButton] = useState(false)
+
   const options = [
     { value: 'All', label: 'All' },
     { value: 5, label: 5 },
@@ -28,9 +30,7 @@ export default function Reviews({ reviews, setReviews }) {
       setReviews(updatedReviewsList)
     });
   }
-  function handleEdit(event){
-    
-  }
+  
   return (
     <div className='r-div'>
       <h2>Reviews</h2>
@@ -45,7 +45,7 @@ export default function Reviews({ reviews, setReviews }) {
               <h3>Rated {review.score} out of 5!</h3>
               <div className='review-buttons-div'>
                 <button onClick={() => handleDelete(review.id)}><i class="fa fa-trash"></i></button>
-                <button className='edit-button'onClick={handleEdit} >edit</button>
+                <NavLink to={`/reviews/${review.id}`}>Edit</NavLink>
               </div>
             </div>
           )

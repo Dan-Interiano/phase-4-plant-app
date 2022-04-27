@@ -1,19 +1,17 @@
 class ReviewsController < ApplicationController
     wrap_parameters format: []
-    skip_before_action :authorize, only: [:index, :show, :create, :destroy]
+    skip_before_action :authorize, only: [:index, :show, :create, :destroy, :update]
 
     def index 
         all_reviews = Review.all 
         render json: all_reviews
     end
     def show
-        byebug
         selected_review = find_review
         render json: selected_review
     end 
     def create 
         new_review = Review.create(review_params)
-        byebug
         render json: new_review, status: :created
     end
     def destroy
@@ -21,7 +19,11 @@ class ReviewsController < ApplicationController
         review.destroy
         head :no_content
     end
-
+    def update
+        review = find_review
+        review.update(review_params)
+        render json: review, status: :accepted 
+    end 
     private
 
     def find_review

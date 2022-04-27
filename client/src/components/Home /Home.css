@@ -13,3 +13,30 @@
     font-family: 'Pacifico', cursive;
     font-size: 100px;
 }
+.mid-div {
+    height: 90vh;
+    background-color: white;
+    display: flex;
+
+}
+.mid-left-div {
+    
+    width: 60%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.mid-right-div {
+    
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.middle-image {
+    width: 300px;
+    height: 200px;
+}

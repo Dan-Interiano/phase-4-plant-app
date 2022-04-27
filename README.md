@@ -2,7 +2,11 @@
 
 ## Description
 
-This app is for those plant enthusiasts looking for some info on their favorite plants, and how to care for them. 
+This app is for those plant enthusiasts looking for some info on their favorite plants, and how to care for them.
+
+## Usage
+
+A User signs up for an account on the website using their own username and password, which creates a record on our backend database. That information is saved in our sesssions, and a user is then logged in where they will be able to view a list of plants that are being fetched to from our database. Each plant comes with an array of information about each plant, from how to care for each specific plant to reviews that other users have left. Users can also delete a review. 
 
 ## Requirements
 
@@ -16,7 +20,6 @@ This app is for those plant enthusiasts looking for some info on their favorite 
 Feel free to reach out to me reading any questions or concerns at dannyboyint@gmail.com
 
 
-
 # Contact
 Daniel Interiano - dannyboyint@gmail.com
 
@@ -25,6 +28,9 @@ Daniel Interiano - dannyboyint@gmail.com
 
 Malven's Flexbox Cheet Sheet
 https://flexbox.malven.co/
+
+Font Awesome
+
 
 # License
 Distributed under the MIT License.
