@@ -37,5 +37,10 @@ Review.create(title: "Green Green Green!", comment: "wow this was such a joy to 
 Review.create(title: "Another one for the books!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 4)
 Review.create(title: "Gotta love these!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 3)
 Review.create(title: "You love these!", comment: "wow this was such a joy to have in my house! Everyone loves it when they see it!", score: 5, user_id: 1, plant_id: 9)
+Adopted.create(plant_id: 1, user_id: 2)
+Adopted.create(plant_id: 1, user_id: 2)
+Adopted.create(plant_id: 2, user_id: 1)
+Adopted.create(plant_id: 2, user_id: 1)
+User.create(username: "daninteriano", password: 'geronimo', password_confirmation: 'geronimo')
 
 puts "✅ Done seeding!"

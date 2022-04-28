@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom';
 import { useParams } from 'react-router-dom'
-
 import ReviewCard from '../Reviews/ReviewCard';
 
 export default function Update() {
