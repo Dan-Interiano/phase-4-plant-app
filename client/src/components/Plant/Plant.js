@@ -51,6 +51,16 @@ export default function Plant() {
         })
       })
   }
+  function handleAdoption(){
+    fetch("http://localhost:4000/adopteds", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(id),
+    }).then((res) => res.json())
+    .then((data) => console.log(data))
+  }
   return (
     <div className='flora-container'>
       <div className='flora-details'>
@@ -62,6 +72,7 @@ export default function Plant() {
         <h5>Sun Exposure: {flora.sun_exposure}</h5>
         <h5>Soil Type: {flora.soil_type}</h5>
         <h5>Water Cycle: {flora.water_cycle}</h5>
+        <button className='adopt-button' onClick={handleAdoption}><h1>Adopt Me</h1></button>
       </div>
       <Revform submit={handleSubmit} change={handleChange} form={revform} />
       <Reviews reviews={reviews} setReviews={setReviews} />

@@ -11,6 +11,7 @@ export default function Cards({ data }) {
               <img src={plant.image_url} className="plant-picture" alt={plant.name}/>
               <h2 className='card-title'>{plant.name}</h2>
               <NavLink to={`/plants/${plant.id}`} className="plant-btn">Learn More</NavLink>
+              
             </div>
           )
         })}

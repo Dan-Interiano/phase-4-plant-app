@@ -42,5 +42,6 @@ Adopted.create(plant_id: 1, user_id: 2)
 Adopted.create(plant_id: 2, user_id: 1)
 Adopted.create(plant_id: 2, user_id: 1)
 User.create(username: "daninteriano", password: 'geronimo', password_confirmation: 'geronimo')
+User.create(username: "natalieeyob", password: 'junketsu', password_confirmation: 'junketsu')
 
 puts "✅ Done seeding!"

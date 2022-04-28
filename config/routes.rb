@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   resources :plants, only:[:show, :index, :create]
   resources :users, only:[:show, :create]
   resources :reviews
+  resources :adopteds, only:[:index, :create]
   
 end
