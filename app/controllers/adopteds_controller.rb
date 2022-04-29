@@ -3,12 +3,12 @@ class AdoptedsController < ApplicationController
     skip_before_action :authorize, only: :create
 
     def create 
-        byebug
         new_adoption = Adopted.create(adopted_params)
         render json: new_adoption, status: :created
     end
     def index 
-        adopted_plants = Adopted.all 
+        user = User.find(session[:user_id])
+        adopted_plants = user.plants 
         render json: adopted_plants
     end
 

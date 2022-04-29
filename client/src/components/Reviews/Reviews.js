@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import './Reviews.css'
 import Select from 'react-select'
-import { NavLink } from 'react-router-dom';
 import ReviewCard from './ReviewCard';
 
 
 export default function Reviews({ reviews, setReviews }) {
   const [search, setSearch] = useState('All');
-  //const [popupButton, setPopupButton] = useState(false)
 
   const options = [
     { value: 'All', label: 'All' },

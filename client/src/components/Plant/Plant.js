@@ -52,12 +52,13 @@ export default function Plant() {
       })
   }
   function handleAdoption(){
+    let plant_id = id 
     fetch("http://localhost:4000/adopteds", {
-      method: "PATCH",
+      method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(id),
+      body: JSON.stringify({plant_id}),
     }).then((res) => res.json())
     .then((data) => console.log(data))
   }

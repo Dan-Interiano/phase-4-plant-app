@@ -41,7 +41,12 @@ export default function Navbar({ user, setUser }) {
                         </li>
                         <li className='nav-item'>
                             <Link to='/garden' className='nav-links' onClick={handleClick}>
-                                Garden
+                                Plants
+                            </Link>
+                        </li>
+                        <li className='nav-item'>
+                            <Link to='/adopteds' className='nav-links' onClick={handleClick}>
+                                My Garden
                             </Link>
                         </li>
                         <li className='nav-item'>

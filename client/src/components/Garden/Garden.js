@@ -56,7 +56,7 @@ export default function Garden() {
   }
   return (
     <div className='g-container'>
-      <h1 className='g-title'>Here is the Garden</h1>
+      <h1 className='g-title'>Here are our Plants</h1>
       <Cards data={plants} />
       <Plantform form={formData} change={handleChange} submit={handleSubmit}/>
     </div>
