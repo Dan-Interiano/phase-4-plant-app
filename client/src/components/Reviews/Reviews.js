@@ -4,7 +4,7 @@ import Select from 'react-select'
 import ReviewCard from './ReviewCard';
 
 
-export default function Reviews({ reviews, setReviews }) {
+export default function Reviews({ reviews, setReviews, revform, handleChange }) {
   const [search, setSearch] = useState('All');
 
   const options = [
@@ -30,6 +30,18 @@ export default function Reviews({ reviews, setReviews }) {
     });
   }
   
+  function handleUpdateSubmission(event) {
+    event.preventDefault()
+    fetch(`http://localhost:4000/reviews/$`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(),
+    }).then((res) => res.json())
+      .then((data) => console.log(data))
+  }
+  
   return (
     <div className='r-div'>
       <h2>Reviews</h2>
@@ -37,10 +49,17 @@ export default function Reviews({ reviews, setReviews }) {
       <div className='rev-container'>
         {filteredReviews?.map((review) => {
           return (
-            <ReviewCard review={review} handleDelete={handleDelete}/>
+            <ReviewCard review={review} 
+            handleUpdateSubmission={handleUpdateSubmission} 
+            handleDelete={handleDelete} 
+            setReviews={setReviews}
+            revform={revform}
+            handleChange={handleChange}
+            />
           )
         })}
       </div>
+      
     </div>
   )
 }

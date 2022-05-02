@@ -9,7 +9,6 @@ import Login from "./components/Login/Login";
 import Navbar from "./components/Navbar/Navbar";
 import Plant from "./components/Plant/Plant";
 import SignUp from "./components/SignUp/SignUp";
-import Update from "./components/Update/Update";
 import Welcome from "./components/Welcome/Welcome";
 import MyGarden from "./components/MyGarden/MyGarden";
 
@@ -38,7 +37,6 @@ function App() {
         <Route exact path="/about" component={About} />
         <Route exact path="/" component={Home} />
         <Route exact path="/plants/:id" component={Plant}  />
-        <Route exact path="/reviews/:id" component={Update} />
         <Route exact path="/adopteds" component={MyGarden} />
       </Switch>
       </Router>

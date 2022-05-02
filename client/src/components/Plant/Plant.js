@@ -76,7 +76,8 @@ export default function Plant() {
         <button className='adopt-button' onClick={handleAdoption}><h1>Adopt Me</h1></button>
       </div>
       <Revform submit={handleSubmit} change={handleChange} form={revform} />
-      <Reviews reviews={reviews} setReviews={setReviews} />
+      <Reviews reviews={reviews} setReviews={setReviews} revform={revform} handleChange={handleChange}/>
+      
     </div>
   )
 }
