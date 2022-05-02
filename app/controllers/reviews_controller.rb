@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
     wrap_parameters format: []
-    skip_before_action :authorize, only: [:index, :show, :create, :destroy, :update]
+    #skip_before_action :authorize, only: [:index, :show, :create, :destroy, :update]
 
     def index 
         all_reviews = Review.all 

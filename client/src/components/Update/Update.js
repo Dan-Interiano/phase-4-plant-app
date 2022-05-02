@@ -25,7 +25,8 @@ export default function Update() {
       [event.target.name]: event.target.value,
     })
   }
-  function handleUpdateSubmission() {
+  function handleUpdateSubmission(event) {
+    event.preventDefault()
     fetch(`http://localhost:4000/reviews/${id}`, {
       method: "PATCH",
       headers: {
@@ -40,7 +41,7 @@ export default function Update() {
       <ReviewCard review={review} />
       <div className='revform-container' id='rev-form'>
         <h1>Update Your Review</h1>
-        <form onSubmit={handleUpdateSubmission}>
+        <form onSubmit={(event) => handleUpdateSubmission(event)}>
           <label>Title: <input type="text" name="title" value={updated.title} onChange={handleChange} /></label>
           <label>Score: <input type="text" name="score" value={updated.score} onChange={handleChange} /></label>
           <label>Comment: <textarea type='text' name="comment" value={updated.comment} onChange={handleChange} /></label>
