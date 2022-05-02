@@ -20,6 +20,7 @@ export default function Plant() {
       .then((res) => res.json())
       .then((plant) => {
         setReviews(plant.reviews)
+        
         setFlora(plant)
       })
   },
@@ -76,7 +77,8 @@ export default function Plant() {
         <button className='adopt-button' onClick={handleAdoption}><h1>Adopt Me</h1></button>
       </div>
       <Revform submit={handleSubmit} change={handleChange} form={revform} />
-      <Reviews reviews={reviews} setReviews={setReviews} revform={revform} handleChange={handleChange}/>
+      <Reviews reviews={reviews} setReviews={setReviews} revform={revform} 
+      handleChange={handleChange}/>
       
     </div>
   )

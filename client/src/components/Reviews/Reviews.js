@@ -53,6 +53,7 @@ export default function Reviews({ reviews, setReviews, revform, handleChange }) 
             handleUpdateSubmission={handleUpdateSubmission} 
             handleDelete={handleDelete} 
             setReviews={setReviews}
+            reviews={reviews}
             revform={revform}
             handleChange={handleChange}
             />

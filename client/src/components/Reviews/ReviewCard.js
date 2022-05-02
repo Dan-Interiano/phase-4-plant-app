@@ -1,8 +1,18 @@
 import React, {useState } from 'react'
 
-export default function ReviewCard({ review, handleDelete, revform, handleChange}) {
+export default function ReviewCard({ review, handleDelete, setReviews, reviews}) {
   const [trigger, setTrigger] = useState(false)
-  
+  const [updated, setUpdated] = useState({
+    comment: review.comment,
+    title: review.title,
+    score: review.score
+  })
+  function handleFormChange(event){
+    setUpdated({
+      ...updated,
+      [event.target.name]: event.target.value,
+    })
+  }
   function handleEditClick(e){
     setTrigger(!trigger)
   }
@@ -14,11 +24,16 @@ export default function ReviewCard({ review, handleDelete, revform, handleChange
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(),
+      body: JSON.stringify(updated),
     }).then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        console.log(data)
+        setTrigger(!trigger)
+        setReviews([...reviews, data])
+      }) 
   }
   return (
+    // each individual review and it's information 
     <div className='review-card' key={review.id}>
       <h4>{review.title}</h4>
       <p className='review-comment'>{review.comment}</p>
@@ -32,9 +47,9 @@ export default function ReviewCard({ review, handleDelete, revform, handleChange
       <div className='revform-container' id='rev-form'>
         <h1>Update Your Review</h1>
         <form onSubmit={(event) => handleUpdateSubmission(event)}>
-          <label>Title: <input type="text" name="title" value={review.title} onChange={handleChange} /></label>
-          <label>Score: <input type="text" name="score" value={review.score} onChange={handleChange} /></label>
-          <label>Comment: <textarea type='text' name="comment" value={review.comment} onChange={handleChange} /></label>
+          <label>Title: <input type="text" name="title" value={updated.title} onChange={handleFormChange} /></label>
+          <label>Score: <input type="text" name="score" value={updated.score} onChange={handleFormChange} /></label>
+          <label>Comment: <textarea type='text' name="comment" value={updated.comment} onChange={handleFormChange} /></label>
           <button type='submit' id="revform-submit-btn">Submit</button>
         </form>
       </div> : ""}
