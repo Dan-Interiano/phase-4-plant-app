@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
         render json: selected_review
     end 
     def create 
-        new_review = Review.create(review_params)
+        new_review = @current_user.reviews.create(review_params)
         render json: new_review, status: :created
     end
     def destroy
@@ -25,16 +25,20 @@ class ReviewsController < ApplicationController
     end
     def update
         review = find_review
-        review.update(review_params)
-        render json: review, status: :accepted 
+        if @current_user.id == review.user_id 
+            review.update(review_params)
+            render json: review, status: :accepted 
+        else 
+            return render json: { error: "Not authorized" }, status: :unauthorized 
+        end
     end 
+
     private
 
     def find_review
         Review.find_by(id: params[:id])
     end
     def review_params
-        defaults = { user_id: session[:user_id] }
-        params.permit(:title, :comment, :score, :plant_id, :user_id).reverse_merge(defaults)
+        params.permit(:title, :comment, :score, :plant_id, :user_id)
     end
 end

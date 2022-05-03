@@ -1,7 +1,7 @@
 import React, {useState } from 'react'
 
 export default function ReviewCard({ review, handleDelete, setReviews, reviews}) {
-  const [trigger, setTrigger] = useState(false)
+  const [trigger, setTrigger] = useState(false);
   const [updated, setUpdated] = useState({
     comment: review.comment,
     title: review.title,
@@ -13,7 +13,7 @@ export default function ReviewCard({ review, handleDelete, setReviews, reviews})
       [event.target.name]: event.target.value,
     })
   }
-  function handleEditClick(e){
+  function handleEditClick(){
     setTrigger(!trigger)
   }
   
@@ -25,12 +25,14 @@ export default function ReviewCard({ review, handleDelete, setReviews, reviews})
         "Content-Type": "application/json"
       },
       body: JSON.stringify(updated),
-    }).then((res) => res.json())
-      .then((updatedReview) => {
-        console.log(updatedReview)
+    }).then((res) => {
+      if(res.ok){
+        const updatedReviewsList = reviews?.filter((singleReview) => {
+          return singleReview.id !== review.id 
+        });
+        setReviews([...updatedReviewsList, updated])
         setTrigger(!trigger)
-        setReviews([...reviews, updatedReview])
-      }) 
+    }})
   }
   return (
     // each individual review and it's information 

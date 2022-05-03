@@ -21,7 +21,7 @@ export default function Plant() {
       .then((res) => res.json())
       .then((plant) => {
         setReviews(plant.reviews)
-        console.log(flora)
+        console.log(plant)
         setFlora(plant)
       })
   },
@@ -64,6 +64,16 @@ export default function Plant() {
     }).then((res) => res.json())
     .then((data) => console.log(data))
   }
+
+  const filteredUsers = flora?.users?.reduce((acc, current) => {
+    const x = acc.find(item => item.username === current.username);
+    if (!x) {
+      return acc.concat([current]);
+    } else {
+      return acc;
+    }
+  }, []);
+  console.log(filteredUsers)
   return (
     <div className='flora-container'>
       <div className='flora-details'>
@@ -76,7 +86,9 @@ export default function Plant() {
         <h5>Soil Type: {flora.soil_type}</h5>
         <h5>Water Cycle: {flora.water_cycle}</h5>
         <NavLink to="/adopteds"><button className='adopt-button' onClick={handleAdoption}><h1>Adopt Me</h1></button></NavLink>
-        
+        <h4>Adopted by Users like {filteredUsers?.map((user) => (
+          <h4>{user.username}</h4>
+        ))}</h4>
       </div>
       <Revform submit={handleSubmit} change={handleChange} form={revform} />
       <Reviews reviews={reviews} setReviews={setReviews} revform={revform} 

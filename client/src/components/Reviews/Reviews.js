@@ -32,18 +32,6 @@ export default function Reviews({ reviews, setReviews, revform, handleChange }) 
     });
   }
   
-  function handleUpdateSubmission(event) {
-    event.preventDefault()
-    fetch(`http://localhost:4000/reviews/$`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(),
-    }).then((res) => res.json())
-      .then((data) => console.log(data))
-  }
-  
   return (
     <div className='r-div'>
       <h2>Reviews</h2>
@@ -52,11 +40,9 @@ export default function Reviews({ reviews, setReviews, revform, handleChange }) 
         {filteredReviews?.map((review) => {
           return (
             <ReviewCard review={review} 
-            handleUpdateSubmission={handleUpdateSubmission} 
             handleDelete={handleDelete} 
             setReviews={setReviews}
             reviews={reviews}
-            revform={revform}
             handleChange={handleChange}
             />
           )
