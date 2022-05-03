@@ -73,7 +73,7 @@ export default function Plant() {
       return acc;
     }
   }, []);
-  console.log(filteredUsers)
+    
   return (
     <div className='flora-container'>
       <div className='flora-details'>
