@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { NavLink } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import Revform from '../ReviewForm/Revform';
 import Reviews from '../Reviews/Reviews';
@@ -20,7 +21,7 @@ export default function Plant() {
       .then((res) => res.json())
       .then((plant) => {
         setReviews(plant.reviews)
-        
+        console.log(flora)
         setFlora(plant)
       })
   },
@@ -74,7 +75,8 @@ export default function Plant() {
         <h5>Sun Exposure: {flora.sun_exposure}</h5>
         <h5>Soil Type: {flora.soil_type}</h5>
         <h5>Water Cycle: {flora.water_cycle}</h5>
-        <button className='adopt-button' onClick={handleAdoption}><h1>Adopt Me</h1></button>
+        <NavLink to="/adopteds"><button className='adopt-button' onClick={handleAdoption}><h1>Adopt Me</h1></button></NavLink>
+        
       </div>
       <Revform submit={handleSubmit} change={handleChange} form={revform} />
       <Reviews reviews={reviews} setReviews={setReviews} revform={revform} 

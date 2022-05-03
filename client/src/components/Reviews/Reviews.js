@@ -23,10 +23,12 @@ export default function Reviews({ reviews, setReviews, revform, handleChange }) 
     fetch(`http://localhost:4000/reviews/${id}`, {
       method: "DELETE",
     }).then((res) => {
+      if (res.ok) {
       const updatedReviewsList = reviews?.filter((review) => {
         return review.id !== id
       });
       setReviews(updatedReviewsList)
+      }
     });
   }
   

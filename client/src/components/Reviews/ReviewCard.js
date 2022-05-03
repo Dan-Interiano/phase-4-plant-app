@@ -26,10 +26,10 @@ export default function ReviewCard({ review, handleDelete, setReviews, reviews})
       },
       body: JSON.stringify(updated),
     }).then((res) => res.json())
-      .then((data) => {
-        console.log(data)
+      .then((updatedReview) => {
+        console.log(updatedReview)
         setTrigger(!trigger)
-        setReviews([...reviews, data])
+        setReviews([...reviews, updatedReview])
       }) 
   }
   return (

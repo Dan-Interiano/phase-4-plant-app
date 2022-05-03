@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
     wrap_parameters format: []
-    #skip_before_action :authorize, only: [:index, :show, :create, :destroy, :update]
+    skip_before_action :authorize, only: [:index, :show, :create, :destroy, :update]
 
     def index 
         all_reviews = Review.all 
@@ -16,8 +16,12 @@ class ReviewsController < ApplicationController
     end
     def destroy
         review = find_review
-        review.destroy
-        head :no_content
+        if @current_user.id == review.user_id 
+            review.destroy
+            head :no_content
+        else 
+            return render json: { error: "Not authorized" }, status: :unauthorized 
+        end
     end
     def update
         review = find_review
