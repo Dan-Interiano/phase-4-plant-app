@@ -37,22 +37,26 @@ export default function Garden() {
       },
       body: JSON.stringify(formData),
     })
-    .then((res) => res.json())
-    .then((newPlant) => {
-      console.log(newPlant)
-      setPlants([
-        ...plants,
-        newPlant
-      ])
-    setFormData({
-      name: "",
-      species: "",
-      sun_exposure: "",
-      soil_type: "",
-      water_cycle: "",
-      image_url: "",
-      bio: ""
-    })})
+    .then((res) => {
+      if (res.ok){
+        res.json().then((newPlant) => {
+          console.log(newPlant)
+          setPlants([
+          ...plants,
+          newPlant
+        ])
+        setFormData({
+            name: "",
+            species: "",
+            sun_exposure: "",
+            soil_type: "",
+            water_cycle: "",
+            image_url: "",
+            bio: ""
+          })
+        })
+      }
+      })
   }
   return (
     <div className='g-container'>

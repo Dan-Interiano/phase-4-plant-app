@@ -42,15 +42,18 @@ export default function Plant() {
       },
       body: JSON.stringify(revform),
     })
-      .then((res) => res.json())
-      .then((data) => {
-        setReviews([...reviews, data])
-        setRevForm({
-          plant_id: id,
-          comment: "",
-          score: "",
-          title: ""
-        })
+      .then((res) => {
+        if(res.ok){
+          res.json().then((newReview) => {
+            setReviews([...reviews, newReview])
+            setRevForm({
+              plant_id: id,
+              comment: "",
+              score: "",
+              title: ""
+            })
+          })
+        }
       })
   }
   function handleAdoption(){
