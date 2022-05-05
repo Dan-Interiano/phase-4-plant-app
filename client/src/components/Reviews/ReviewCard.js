@@ -5,7 +5,8 @@ export default function ReviewCard({ review, handleDelete, setReviews, reviews})
   const [updated, setUpdated] = useState({
     comment: review.comment,
     title: review.title,
-    score: review.score
+    score: review.score,
+    author: review.author
   })
   function handleFormChange(event){
     setUpdated({
@@ -40,7 +41,7 @@ export default function ReviewCard({ review, handleDelete, setReviews, reviews})
       <h4>{review.title}</h4>
       <p className='review-comment'>{review.comment}</p>
       <h3>Rated {review.score} out of 5!</h3>
-      <h3>by: {review.review_user}</h3>
+      <h3>by: {review?.author}</h3>
       <div className='review-buttons-div'>
         <button onClick={() => handleDelete(review.id)}><i class="fa fa-trash"></i></button>
         <button onClick={handleEditClick}>Edit</button>

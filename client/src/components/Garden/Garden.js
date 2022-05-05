@@ -6,13 +6,13 @@ import "./Garden.css"
 export default function Garden() {
   const [plants, setPlants] = useState([]);
   const [formData, setFormData] = useState({
-    name: " ",
-    species: " ",
-    sun_exposure: " ",
-    soil_type: " ",
-    water_cycle: " ",
-    image_url: " ",
-    bio: " "
+    name: "",
+    species: "",
+    sun_exposure: "",
+    soil_type: "",
+    water_cycle: "",
+    image_url: "",
+    bio: ""
   });
   
   useEffect(() => {
@@ -50,7 +50,7 @@ export default function Garden() {
       sun_exposure: "",
       soil_type: "",
       water_cycle: "",
-      immage_url: "",
+      image_url: "",
       bio: ""
     })})
   }

@@ -1,6 +1,5 @@
 class PlantsController < ApplicationController
     wrap_parameters format: []
-    skip_before_action :authorize, only: [:create, :index, :show]
 
     def index 
         plants = Plant.all 
@@ -11,7 +10,7 @@ class PlantsController < ApplicationController
         render json: plant 
     end
     def create 
-        flora = Plant.create(plant_params)
+        flora = Plant.create!(plant_params)
         render json: flora, status: :created
     end
 
