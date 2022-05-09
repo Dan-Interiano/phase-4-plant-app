@@ -1,5 +1,6 @@
 class PlantsController < ApplicationController
     wrap_parameters format: []
+    rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
     def index 
         plants = Plant.all 
@@ -21,5 +22,8 @@ class PlantsController < ApplicationController
     end
     def plant_params
         params.permit(:name, :species, :sun_exposure, :soil_type, :water_cycle, :image_url, :bio)
+    end
+    def render_not_found_response
+        render json: { error: "Plant not found" }, status: :not_found
     end
 end

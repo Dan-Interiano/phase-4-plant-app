@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
     wrap_parameters format: []
+    rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
     def index 
         all_reviews = Review.all 
@@ -39,5 +40,8 @@ class ReviewsController < ApplicationController
     end
     def review_params
         params.permit(:title, :comment, :score, :plant_id, :user_id)
+    end
+    def render_not_found_response
+        render json: { error: "Plant not found" }, status: :not_found
     end
 end

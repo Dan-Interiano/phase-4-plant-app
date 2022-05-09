@@ -10,10 +10,12 @@
 .plant-picture {
     height: 100px;
     width: 75%;
+    border-radius: 5px;
 }
 .card {
-    border: 10px solid rgb(242, 242, 123);
-    border-radius: 10px;
+    border: 4px solid rgb(232, 204, 94);
+    background-color: rgb(229, 209, 108);
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,15 +31,18 @@
     text-decoration: none;
     color: black;
     /* border: 3px solid blue; */
-    background-color: rgb(238, 232, 58);
-    padding: .5rem;
-    width: 23%;
+    background-color: rgb(108, 202, 46);
+    padding: .7rem;
+    border: none;
     border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
 }
 .plant-btn:hover {
-    background-color: white;
+    background-color: rgb(241, 233, 77);
     
 }
 .card-title {
     margin: 10px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
 }

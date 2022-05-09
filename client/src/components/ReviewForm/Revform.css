@@ -1,5 +1,7 @@
 .revform-container {
-    border: 5px solid rgb(69, 135, 28);
+    border: 5px solid rgb(236, 202, 110);
+    background-color: rgb(229, 209, 108);
+
     margin: 10px;
     padding: 10px;
     display: flex;
@@ -9,4 +11,8 @@
 }
 #revform-submit-btn {
     margin: 10px;
+}
+.revform-container > h3 {
+    font-family: 'Playfair Display', serif;
+
 }

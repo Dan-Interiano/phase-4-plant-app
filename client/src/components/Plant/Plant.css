@@ -1,11 +1,38 @@
+.flora-container {
+}
+.flora-top {
+    display: flex;
+}
 .flora-picture {
     height: 400px;
-    width: 50%;
+    width: 100%;
+}
+.flora-image {
+    width: 40%;
 }
 .flora-details {
+    width: 60%;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+    font-family: 'Poppins', sans-serif;
+
+}
+.adopt-button {
+    background-color: rgb(241, 233, 77);
+    padding: 8px;
+    margin: 10px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+}
+.adopt-button:hover {
+    background-color: white;
+}
+.users-lists {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }

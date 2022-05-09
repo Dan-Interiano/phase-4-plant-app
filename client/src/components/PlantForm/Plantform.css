@@ -1,13 +1,18 @@
 .pf-container{
-    border: 3px solid rgb(44, 140, 17);
-    width: 100%;
+    border: 3px solid rgb(212, 183, 41);
+    background-color: rgb(229, 209, 108);
+
     height: 30vh;
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 15px;
+    margin: 20px 20px;
+}
+.pf-container > h2 {
+    font-family: 'Playfair Display', serif;
+    margin: 10px 0px;
 }
 .plant-form > label {
     margin: 10px;
@@ -17,7 +22,16 @@
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
 }
 .submit-btn {
-    padding: 5px;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(108, 202, 46);
+    border: none;
+    border-radius: 5px;
+}
+.submit-btn:hover {
+    background-color: rgb(241, 233, 77);
+
 }

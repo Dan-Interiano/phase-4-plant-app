@@ -79,8 +79,11 @@ export default function Plant() {
     
   return (
     <div className='flora-container'>
+      <div className='flora-top'>
+      <div className='flora-image'>
+      <img src={flora.image_url} alt={flora.name} className="flora-picture" />
+      </div>
       <div className='flora-details'>
-        <img src={flora.image_url} alt={flora.name} className="flora-picture" />
         <h1>{flora.name}</h1>
         <h3>Species: {flora.species}</h3>
         <p>{flora.bio}</p>
@@ -89,9 +92,12 @@ export default function Plant() {
         <h5>Soil Type: {flora.soil_type}</h5>
         <h5>Water Cycle: {flora.water_cycle}</h5>
         <NavLink to="/adopteds"><button className='adopt-button' onClick={handleAdoption}><h1>Adopt Me</h1></button></NavLink>
-        <h4>Adopted by Users like {filteredUsers?.map((user) => (
-          <h4>{user.username}</h4>
-        ))}</h4>
+        <div className='users-lists'>
+          <h5>Adopted by Users like: {filteredUsers?.map((user) => (
+            <h4>{user.username}</h4>
+          ))}</h5>
+        </div>
+      </div>
       </div>
       <Revform submit={handleSubmit} change={handleChange} form={revform} />
       <Reviews reviews={reviews} setReviews={setReviews} revform={revform} 
