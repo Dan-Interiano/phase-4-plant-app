@@ -5,7 +5,7 @@ class User < ApplicationRecord
     has_many :adopteds
     has_many :plants, through: :adopteds
     
-    validates :username, :password_digest, uniqueness: true
-    validates :username, :password_digest, presence: true 
-    validates :username, :password, length:{minimum: 8}
+    validates :username, uniqueness: true
+    validates :username, presence: true 
+    validates :username, length:{minimum: 8}
 end

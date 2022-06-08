@@ -15,7 +15,7 @@ export default function Plant() {
     comment: undefined,
     score: undefined,
     title: undefined
-  }) 
+  })
   useEffect(() => {
     fetch(`http://localhost:4000/plants/${id}`)
       .then((res) => res.json())
@@ -26,7 +26,7 @@ export default function Plant() {
       })
   },
     [])
-  
+
   function handleChange(event) {
     setRevForm({
       ...revform,
@@ -43,7 +43,7 @@ export default function Plant() {
       body: JSON.stringify(revform),
     })
       .then((res) => {
-        if(res.ok){
+        if (res.ok) {
           res.json().then((newReview) => {
             setReviews([...reviews, newReview])
             setRevForm({
@@ -56,16 +56,16 @@ export default function Plant() {
         }
       })
   }
-  function handleAdoption(){
-    let plant_id = id 
+  function handleAdoption() {
+    let plant_id = id
     fetch("http://localhost:4000/adopteds", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({plant_id}),
+      body: JSON.stringify({ plant_id }),
     }).then((res) => res.json())
-    .then((data) => console.log(data))
+      .then((data) => console.log(data))
   }
 
   const filteredUsers = flora?.users?.reduce((acc, current) => {
@@ -76,33 +76,33 @@ export default function Plant() {
       return acc;
     }
   }, []);
-    
+
   return (
     <div className='flora-container'>
       <div className='flora-top'>
-      <div className='flora-image'>
-      <img src={flora.image_url} alt={flora.name} className="flora-picture" />
-      </div>
-      <div className='flora-details'>
-        <h1>{flora.name}</h1>
-        <h3>Species: {flora.species}</h3>
-        <p>{flora.bio}</p>
-        <h2>How to care for:</h2>
-        <h5>Sun Exposure: {flora.sun_exposure}</h5>
-        <h5>Soil Type: {flora.soil_type}</h5>
-        <h5>Water Cycle: {flora.water_cycle}</h5>
-        <NavLink to="/adopteds"><button className='adopt-button' onClick={handleAdoption}><h1>Adopt Me</h1></button></NavLink>
-        <div className='users-lists'>
-          <h5>Adopted by Users like: {filteredUsers?.map((user) => (
-            <h4>{user.username}</h4>
-          ))}</h5>
+        <div className='flora-image'>
+          <img src={flora.image_url} alt={flora.name} className="flora-picture" />
+        </div>
+        <div className='flora-details'>
+          <h1>{flora.name}</h1>
+          <h3>Species: {flora.species}</h3>
+          <p>{flora.bio}</p>
+          <h2>How to care for:</h2>
+          <h5>Sun Exposure: {flora.sun_exposure}</h5>
+          <h5>Soil Type: {flora.soil_type}</h5>
+          <h5>Water Cycle: {flora.water_cycle}</h5>
+          <NavLink to="/adopteds"><button className='adopt-button' onClick={handleAdoption}><h1>Adopt Me</h1></button></NavLink>
+          <div className='users-lists'>
+            <h5>Adopted by Users like: {filteredUsers?.map((user) => (
+              <h4>{user.username}</h4>
+            ))}</h5>
+          </div>
         </div>
       </div>
-      </div>
       <Revform submit={handleSubmit} change={handleChange} form={revform} />
-      <Reviews reviews={reviews} setReviews={setReviews} revform={revform} 
-      handleChange={handleChange}/>
-      
+      <Reviews reviews={reviews} setReviews={setReviews} revform={revform}
+        handleChange={handleChange} />
+
     </div>
   )
 }

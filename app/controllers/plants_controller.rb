@@ -2,9 +2,19 @@ class PlantsController < ApplicationController
     wrap_parameters format: []
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
-    def index 
-        plants = Plant.all 
-        render json: plants
+    def index
+        #if not params return all 
+        if(!params[:species])
+            plants = Plant.all 
+            render json: plants
+        #else if params return species 
+        else 
+            #species and add it to the where query method
+            #specific_plant = Plant.where(species: params[:species])
+            specific_plant = Plant.species(params[:species])
+            render json: specific_plant
+        end
+
     end
     def show
         plant = find_plant

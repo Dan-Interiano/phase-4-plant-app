@@ -24,7 +24,7 @@ function App() {
     });
   }, []);
 
-  if(!user) return <Welcome setUser={setUser}/>
+  //if(!user) return <Welcome setUser={setUser}/>
 
   return (
     <div className="App">

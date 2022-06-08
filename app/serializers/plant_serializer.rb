@@ -3,4 +3,6 @@ class PlantSerializer < ActiveModel::Serializer
 
   has_many :reviews
   has_many :users, through: :adopteds 
+
+  
 end
